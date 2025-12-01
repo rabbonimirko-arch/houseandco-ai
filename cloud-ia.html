@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cloud-IA – Assistente Interattivo House & Co</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background: #000;
+        overflow: hidden;
+      }
+      #heygen-streaming-embed, 
+      #heygen-streaming-container,
+      #heygen-streaming-container iframe {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+      .hint-mobile {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 0.8rem;
+        color: #ccc;
+        z-index: 10;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="heygen-streaming-embed"></div>
+    <div class="hint-mobile">Tocca lo schermo per interagire con Cloud-IA</div>
+
+    <script>
+      !function(window){
+        const host = "https://labs.heygen.com";
+        const url = host + "/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiJLYXR5YV9Qcm9mZXNzaW9uYWxMb29rX3B1%0D%0AYmxpYyIsInByZXZpZXdJbWciOiJodHRwczovL2ZpbGVzMi5oZXlnZW4uYWkvYXZhdGFyL3YzLzM0%0D%0AOGRkZjUwM2M2NTRiOWJiYmI4YmVhOWY5MjEwZWFkXzU1ODcwL3ByZXZpZXdfdGFyZ2V0LndlYnAi%0D%0ALCJuZWVkUmVtb3ZlQmFja2dyb3VuZCI6dHJ1ZSwia25vd2xlZGdlQmFzZUlkIjoiMDZiMTk3MGJh%0D%0AOGI4NDYwN2JjZjBmNmRkOWJhMzIwNzMiLCJ1c2VybmFtZSI6ImZiNDBjZGI1NjdlZjRjMTg5MDM4%0D%0ANDkwODI5YzIwZTZmIn0%3D&inIFrame=1";
+        
+        const container = document.createElement("div");
+        container.id = "heygen-streaming-container";
+
+        const iframe = document.createElement("iframe");
+        iframe.allow = "microphone; autoplay";
+        iframe.src = url;
+        container.appendChild(iframe);
+
+        const wrapper = document.getElementById("heygen-streaming-embed");
+        wrapper.appendChild(container);
+      }(globalThis);
+    </script>
+  </body>
+</html>
